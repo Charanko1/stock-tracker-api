@@ -11,7 +11,7 @@ class StockService:
         ticker_upper = stock_data.ticker.upper()
         existing_stock = self.stock_repo.get_by_ticker(ticker_upper)
         if existing_stock:
-            raise BadRequestException(message="Saham dengan ticker {ticker_upped} sudah ada")
+            raise BadRequestException(message=f"Saham dengan ticker {ticker_upper} sudah ada")
 
         new_stock = Stock(
             ticker=ticker_upper,
@@ -20,3 +20,12 @@ class StockService:
         )  
 
         return self.stock_repo.create(new_stock)
+
+    def get_all(self, skip: int = 0, limit: int = 100) -> list[Stock]:
+        stock = self.stock_repo.get_all(skip=skip, limit=limit)
+
+    def get_by_id(self, stock_id: int) -> Stock:
+        stock = self.stock_repo.get_by_id(stock_id)
+        if not stock:
+            raise NotFoundException(message="Saham tidak ditemukan")
+        return stock

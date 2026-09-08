@@ -4,7 +4,7 @@ from app.repositories.portfolio import PortfolioRepository
 from app.repositories.stock import StockRepository
 from app.schemas.portfolio import PortfolioCreate
 
-class PortofolioService:
+class PortfolioService:
     def __init__(self, portfolio_repo : PortfolioRepository, stock_repo : StockRepository):
         self.portfolio_repo = portfolio_repo
         self.stock_repo = stock_repo

@@ -1,4 +1,4 @@
-from .portofolio import PortfolioBase, PortfolioCreate, PortfolioResponse
+from .portfolio import PortfolioBase, PortfolioCreate, PortfolioResponse
 from .stock import StockBase, StockCreate, StockResponse
 from .user import UserBase, UserCreate, UserResponse
 

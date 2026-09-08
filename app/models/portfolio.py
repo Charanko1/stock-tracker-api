@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, Float, ForeignKey, TIMESTAMP, text
 from sqlalchemy.orm import relationship
-from app.database import Base
+from app.db.base_class import Base
 
 class Portfolio(Base):
     __tablename__ = "portfolios"

@@ -1,5 +1,5 @@
-from .portfolio import PortofolioService
+from .portfolio import PortfolioService
 from .stock import StockService
 from .user import UserService
 
-__all__ = ["UserPortfolio", "StockService", "PortfolioService"]
+__all__ = ["UserService", "StockService", "PortfolioService"]
