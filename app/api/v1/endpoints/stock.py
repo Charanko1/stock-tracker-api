@@ -5,7 +5,7 @@ from app.services import StockService
 
 router = APIRouter(prefix="/stocks", tags=["Stocks"])
 
-@router.post("/", reponse_model=StockResponse, status_code=status.HTTP_201_CREATED)
+@router.post("/", response_model=StockResponse, status_code=status.HTTP_201_CREATED)
 def create_stock(
     stock_data : StockCreate,
     stock_service : StockService = Depends(get_stock_service)

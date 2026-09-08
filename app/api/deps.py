@@ -1,8 +1,8 @@
 from fastapi import Depends
 from sqlalchemy.orm import Session
-from app.db.Session import get_db
+from app.db.session import get_db
 from app.repositories import UserRepository, StockRepository, PortfolioRepository
-from app.services import UserService, StockService, PortofolioService
+from app.services import UserService, StockService, PortfolioService
 
 def get_user_repository(db: Session = Depends(get_db)) -> UserRepository:
     return UserRepository(db)
@@ -19,6 +19,6 @@ def get_stock_service(repo : StockRepository = Depends(get_stock_repository)) ->
 def get_portfolio_repository(db : Session = Depends(get_db)) -> PortfolioRepository:
     return StockRepository(db)
 
-def get_portfolio_service(repo : PortofolioService = Depends(get_user_repository)) -> PortofolioService:
-    return PortofolioService(repo)
+def get_portfolio_service(repo : PortfolioService = Depends(get_user_repository)) -> PortfolioService:
+    return PortfolioService(repo)
 
