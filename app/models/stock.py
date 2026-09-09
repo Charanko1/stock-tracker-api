@@ -10,5 +10,5 @@ class Stock(Base):
     company_name = Column(String)
     sector = Column(String)
 
-    portofolios = relationship("Portofolio", back_populates="stock")
+    portfolios = relationship("Portfolio", back_populates="stock")
     

@@ -19,6 +19,8 @@ def get_stock_service(repo : StockRepository = Depends(get_stock_repository)) ->
 def get_portfolio_repository(db : Session = Depends(get_db)) -> PortfolioRepository:
     return StockRepository(db)
 
-def get_portfolio_service(repo : PortfolioService = Depends(get_user_repository)) -> PortfolioService:
-    return PortfolioService(repo)
+def get_portfolio_service(db : Session = Depends(get_db)) -> PortfolioService:
+    portfolio_repo = PortfolioRepository(db)
+    stock_repo = StockRepository(db)
+    return PortfolioService(portfolio_repo=portfolio_repo, stock_repo=stock_repo)
 
