@@ -3,12 +3,21 @@ from fastapi.responses import JSONResponse
 from app.api.v1.api import api_router
 from app.core.exceptions import AppException
 from app.db.session import Base, engine
+from fastapi.middleware.cors import CORSMiddleware
 
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
     title="Stock & Portfolio Tracker API",
     version="1.0.0",
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origin=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
 )
 
 @app.exception_handler(AppException)
